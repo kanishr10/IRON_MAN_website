@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+/* Reset & base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  body, html {
+    height: 100%;
+    width: 100%;
+  }
+  
+  /* Hero section with background fade */
+  .hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+
+  
+/* Background slider with crossfade */
+.bg-slider {
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: crossFade 25s infinite;
+    animation-timing-function: ease-in-out;
+    transition: background-image 1s ease-in-out;
+    opacity: 1;
+  }
+  
+  @keyframes crossFade {
+    0%   { background-image: url("images/ironman 1.jpg"); }
+    20%  { background-image: url("images/ironman 2.jpg"); }
+    40%  { background-image: url("images/ironman 3.jpg"); }
+    60%  { background-image: url("images/ironman 4.jpg"); }
+    80%  { background-image: url("images/ironman 5.jpg"); }
+    100% { background-image: url("images/ironman 6.jpg"); }
+  }
+  
+  
+  /* Navbar styles */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 50px;
+    color: white;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+  }
+  
+  .logo {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+    font-family: "Bebas Neue";
+  }
+  
+  /* Nav links */
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+  }
+  
+  .nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+  }
+  
+  /* Hover underline animation (starts from center) */
+  .nav-links li a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: #CE0005;
+    transition: 0.4s ease;
+  }
+  
+  .nav-links li a:hover::after {
+    width: 100%;
+  }
+  
+  .nav-links li a:hover {
+    color: #CE0005;
+  }
+  
+  /* Button style */
+  .contact-btn {
+    padding: 10px 20px;
+    background-color: #CE0005;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
+  }
+
+  .menu-ico{
+    display: none;
+  }
+
+  .nav-menu{
+    display: none;
+  }
+  
+  .contact-btn:hover {
+    background-color: #a00004;
+  }
+
+  .nav-menu {
+    display: none;
+  }
+  
+  /* Show menu when checkbox is checked */
+  #menu-toggle:checked ~ .hero .nav-menu {
+    display: flex;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .nav-links{
+      display: none;
+    }
+
+    .contact-btn{
+      display: none;
+    }
+
+    .menu-ico{
+      display: block;
+      cursor: pointer;
+    }
+
+    .nav-menu{
+      background-color: #a00004;
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 0; right: 0;
+      width: 50%;
+      justify-content: center;
+      align-items: center;
+      height: 35%;
+      border-radius: 0 60px 0 60px;
+    }
+
+    .nav-menu li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      position: relative;
+      padding: 5px 0;
+      transition: color 0.3s ease;
+    }
+
+    .nav-menu li a:hover{
+      color: black;
+    }
+
+    .nav-menu {
+      display: none;
+      list-style: none;
+      gap: 20px;
+    }
+
+    span{
+      background-color: whitesmoke;
+      color: black;
+      padding: 7px 20px;
+      border-radius: 10px;
+    }
+
+    span:hover{
+      background-color: rgba(0, 0, 0, 0.6);
+      color: red;
+    }
+
+    .close-ico{
+      cursor: pointer;
+    }
+
+    .navbar{
+      height: 10vh;
+    }
+  }
+  
